@@ -16,7 +16,7 @@ namespace KH
                 Vector3 up = new Vector3(0, 1, 0); 
                 Vector3 distanceToCenter = part.Center.position - transform.position;
                 Vector3 directionOfForce = distanceToCenter.normalized;
-                part.Throw(directionOfForce + up, _fallForce);
+                part.Fall(directionOfForce + up, _fallForce);
             }
         }
     }

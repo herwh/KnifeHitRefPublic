@@ -14,7 +14,7 @@ namespace KH
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Throw(Vector3 directionOfForce, int fallForce)
+        public void Fall(Vector3 directionOfForce, int fallForce)
         {
             _rigidbody.isKinematic = false;
             _rigidbody.useGravity = true;
