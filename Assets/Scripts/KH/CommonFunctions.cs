@@ -1,4 +1,7 @@
-﻿using UnityEngine.SceneManagement;
+﻿using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace KH
 {
@@ -8,5 +11,13 @@ namespace KH
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //active scene = 1 (gamescene)
         }
+        
+        public static IEnumerator DelayCoroutine(Action onComplete, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            
+            onComplete();
+        }
+        
     }
 }

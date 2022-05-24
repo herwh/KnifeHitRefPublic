@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using KH;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,7 +16,8 @@ namespace UI
         {
             if (_coroutine == null)
             {
-                _coroutine = StartCoroutine(AnimationCoroutine(CommonFunctions.RestartScene));
+                _animator.SetTrigger(ButtonClick);
+                _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(RestartScene, _waitForSecond));
             }
         }
 
@@ -26,7 +25,8 @@ namespace UI
         {
             if (_coroutine == null)
             {
-                _coroutine = StartCoroutine(AnimationCoroutine(LoadMenuScene));
+                _animator.SetTrigger(ButtonClick);
+                _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(LoadMenuScene, _waitForSecond));
             }
         }
 
@@ -34,15 +34,12 @@ namespace UI
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -
                                    1); //active scene = 1(gamescene) => 0 menu
+            _coroutine = null;
         }
 
-        private IEnumerator AnimationCoroutine(Action onComplete)
+        private void RestartScene()
         {
-            _animator.SetTrigger(ButtonClick);
-            
-            yield return new WaitForSeconds(_waitForSecond);
-            
-            onComplete();
+            CommonFunctions.RestartScene();
             _coroutine = null;
         }
     }

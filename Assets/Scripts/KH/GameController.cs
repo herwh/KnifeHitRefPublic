@@ -19,17 +19,18 @@ namespace KH
         {
             if (_coroutine == null)
             {
-                _coroutine = StartCoroutine(Wait());
+                _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(RestartScene,_waitForSecond));
             }
 
             _knifeController.LevelComplete -= KnifeControllerOnLevelComplete;
         }
 
-        private IEnumerator Wait()
+        private void RestartScene()
         {
-            yield return new WaitForSeconds(_waitForSecond);
             CommonFunctions.RestartScene();
             _coroutine = null;
         }
+        
+        
     }
 }
