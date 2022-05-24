@@ -8,7 +8,10 @@ namespace KH
         [SerializeField] private ObjectDestroyer _destroyer;
         [SerializeField] private KnifeSpawner _knifeSpawner;
         [SerializeField] private BonusSpawner _bonusSpawner;
+        [SerializeField] private GameObject _logParticle;
 
+        //создать партикл через insctantiate когда нож соприкасается с бревном в точке соприкосновения???
+        //надо получить точку соприкосновения
         void Update()
         {
             LogRotation();
@@ -30,6 +33,11 @@ namespace KH
         public void Stop()
         {
             _speed = 0;
+        }
+
+        public void CreateHitEffect(Knife knife)
+        {
+            Instantiate(_logParticle, knife.KnifeEdge.transform.position, _logParticle.transform.rotation);
         }
     }
 }

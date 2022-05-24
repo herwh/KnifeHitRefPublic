@@ -6,7 +6,9 @@ namespace KH
     {
         [SerializeField] private int _fallForce;
         [SerializeField] private Vector3 _torque;
+        [SerializeField] private GameObject _knifeEdge;
 
+        public GameObject KnifeEdge => _knifeEdge;
         public delegate void CollisionHandler(Knife knife);
 
         public event CollisionHandler LogCollision;

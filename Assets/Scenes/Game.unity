@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwForce: 1650
-  _knife: {fileID: 958030255, guid: 160d24b5e1aaec94db5b80309b53f78e, type: 3}
+  _knife: {fileID: 684667765933500494, guid: 160d24b5e1aaec94db5b80309b53f78e, type: 3}
   _numberOfKnives: 5
   _knifeInitialPosition: {fileID: 282149878}
   _woodLog: {fileID: 254957435}
@@ -2007,7 +2007,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 15
+  m_PlaneDistance: 12
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2710,6 +2710,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 33500413, guid: 4be14b41dcc82154ca3757c5c682080a, type: 3}
+      propertyPath: _knife
+      value: 
+      objectReference: {fileID: 684667765933500494, guid: 160d24b5e1aaec94db5b80309b53f78e, type: 3}
+    - target: {fileID: 254957435, guid: 4be14b41dcc82154ca3757c5c682080a, type: 3}
+      propertyPath: _logParticle
+      value: 
+      objectReference: {fileID: 5997886861048948028, guid: aa07927396f15e94b86136f6fe5db003, type: 3}
     - target: {fileID: 5183959597679191690, guid: 4be14b41dcc82154ca3757c5c682080a, type: 3}
       propertyPath: m_Name
       value: WoodLog

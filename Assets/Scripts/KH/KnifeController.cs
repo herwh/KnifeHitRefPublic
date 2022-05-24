@@ -78,6 +78,7 @@ namespace KH
       {
          if (KnifeWithLogCollision != null)
          {
+            _woodLog.CreateHitEffect(knife);
             KnifeWithLogCollision();
          }
 

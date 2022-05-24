@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2934268236046486997}
   - component: {fileID: 3906897092584374830}
   - component: {fileID: 3906897092584374829}
-  - component: {fileID: 958030255}
+  - component: {fileID: 684667765933500494}
   m_Layer: 7
   m_Name: KnifeSandSkin
   m_TagString: Untagged
@@ -31,7 +31,8 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.5, y: 5.5, z: 4}
-  m_Children: []
+  m_Children:
+  - {fileID: 6934528674136925992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
@@ -114,7 +115,7 @@ CapsuleCollider:
   m_Height: 0.35998952
   m_Direction: 2
   m_Center: {x: 0, y: 0.00043707003, z: -0.0027252883}
---- !u!114 &958030255
+--- !u!114 &684667765933500494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,3 +129,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fallForce: 1000
   _torque: {x: 0, y: 1, z: 40}
+  _knifeEdge: {fileID: 5458667100998601253}
+--- !u!1 &5458667100998601253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6934528674136925992}
+  m_Layer: 7
+  m_Name: KnifeEdge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6934528674136925992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458667100998601253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4103819083414025914}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
