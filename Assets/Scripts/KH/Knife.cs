@@ -7,7 +7,9 @@ namespace KH
         [SerializeField] private int _fallForce;
         [SerializeField] private Vector3 _torque;
         [SerializeField] private GameObject _knifeEdge;
-
+        [SerializeField] private AudioSource _knifeCollisionSound;
+        [SerializeField] private AudioSource _logCollisionSound;
+        
         public GameObject KnifeEdge => _knifeEdge;
         public delegate void CollisionHandler(Knife knife);
 
@@ -17,6 +19,7 @@ namespace KH
         private Rigidbody _rigidbody;
         private bool _isHit;
         private bool _fallOff;
+        private bool _wasThrown;
 
         private void Awake()
         {
@@ -25,6 +28,7 @@ namespace KH
 
         public void KnifeThrowing(float throwForce)
         {
+            _wasThrown = true;
             _rigidbody.AddForce(transform.forward * throwForce);
         }
 
@@ -40,14 +44,23 @@ namespace KH
         {
             if (collision.gameObject.layer == 6) //6 это Log
             {
-                Vibration.VibratePop();
+                if (_wasThrown)
+                {
+                     _logCollisionSound.Play();
+                     Vibration.VibratePop();
+                }
+               
                 _isHit = true;
                 if (LogCollision != null) LogCollision(this);
                 SetLogAsParent(collision);
             }
             else if (collision.gameObject.layer == 7) //7 - Knife
             {
-                Vibration.Vibrate();
+                if (_wasThrown)
+                {
+                    _knifeCollisionSound.Play();
+                    Vibration.Vibrate();
+                }
                 _isHit = true;
                 if (KnifeCollision != null)
                 {
