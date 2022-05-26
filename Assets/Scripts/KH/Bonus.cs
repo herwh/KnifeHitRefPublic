@@ -17,20 +17,22 @@ namespace KH
         {
             if (collision.gameObject.layer == 7) //7 - knife
             {
-                if (!_isDestroyed)
-                {
-                    _destroyBonusSound.Play();
-                }
                 DestroyBonus();
-                if (BonusIsDestroyed != null)
-                {
-                    BonusIsDestroyed();
-                }
             }
         }
 
         public void DestroyBonus()
         {
+            if (!_isDestroyed)
+            {
+                _destroyBonusSound.Play();
+            }
+
+            if (BonusIsDestroyed != null)
+            {
+                BonusIsDestroyed();
+            }
+
             transform.SetParent(null);
             _destroyer.Destroy();
             _isDestroyed = true;

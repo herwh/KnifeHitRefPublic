@@ -18,7 +18,7 @@ namespace UI
         {
             if (_coroutine == null)
             {
-                CommonFunctions.PlayButtonSound(_buttonSound);
+                _buttonSound.Play();
                 _animator.SetTrigger(ButtonClick);
                 _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(RestartScene, _waitForSecond));
             }
@@ -28,7 +28,7 @@ namespace UI
         {
             if (_coroutine == null)
             {
-                CommonFunctions.PlayButtonSound(_buttonSound);
+                _buttonSound.Play();
                 _animator.SetTrigger(ButtonClick);
                 _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(LoadMenuScene, _waitForSecond));
             }
