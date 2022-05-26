@@ -19,5 +19,9 @@ namespace KH
             onComplete();
         }
         
+        public static void PlayButtonSound(AudioSource buttonSound)
+        {
+            buttonSound.Play();
+        }
     }
 }

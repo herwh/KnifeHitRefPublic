@@ -1,12 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace KH
 {
     public class BonusSpawner : MonoBehaviour
     {
-        [SerializeField] private BonusProbability _bonusProbability;
+        [FormerlySerializedAs("_bonusProbability")] [SerializeField] private BonusData _bonusData;
         [SerializeField] private Transform _bonusStartPosition;
 
         public event Action BonusIsDestroyed;
@@ -20,10 +21,10 @@ namespace KH
         private void BonusSpawn()
         {
             int appleProbability = Random.Range(1, 100);
-            if (appleProbability < _bonusProbability.Probability)
+            if (appleProbability < _bonusData.Probability)
             {
                 GameObject instance =
-                    Instantiate(_bonusProbability.Bonus, _bonusStartPosition);
+                    Instantiate(_bonusData.Bonus, _bonusStartPosition);
                 _bonus = instance.GetComponent<Bonus>();
                 _bonus.BonusIsDestroyed +=
                     BonusOnBonusIsDestroyed;

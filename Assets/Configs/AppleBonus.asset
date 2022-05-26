@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AppleBonus
   m_EditorClassIdentifier: 
   _bonus: {fileID: 7879706212794845191, guid: dc8805561f3da2a4aa852454164762c2, type: 3}
-  _probability: 25
+  _probability: 100

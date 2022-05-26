@@ -9,6 +9,7 @@ namespace KH
         [SerializeField] private KnifeSpawner _knifeSpawner;
         [SerializeField] private BonusSpawner _bonusSpawner;
         [SerializeField] private GameObject _logParticle;
+        [SerializeField] private AudioSource _destroyLogSound;
 
         //создать партикл через insctantiate когда нож соприкасается с бревном в точке соприкосновения???
         //надо получить точку соприкосновения
@@ -26,6 +27,7 @@ namespace KH
         {
             Stop();
             _destroyer.Destroy();
+            _destroyLogSound.Play();
             _knifeSpawner.SpawnedKnivesFallOff();
             _bonusSpawner.DestroyBonuses();
         }

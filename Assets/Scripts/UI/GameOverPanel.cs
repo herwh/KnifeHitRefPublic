@@ -8,14 +8,17 @@ namespace UI
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private float _waitForSecond;
+        [SerializeField]private AudioSource _buttonSound;
 
         private static readonly int ButtonClick = Animator.StringToHash("ButtonClick");
         private Coroutine _coroutine;
+        
 
         public void RestartGame()
         {
             if (_coroutine == null)
             {
+                CommonFunctions.PlayButtonSound(_buttonSound);
                 _animator.SetTrigger(ButtonClick);
                 _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(RestartScene, _waitForSecond));
             }
@@ -25,6 +28,7 @@ namespace UI
         {
             if (_coroutine == null)
             {
+                CommonFunctions.PlayButtonSound(_buttonSound);
                 _animator.SetTrigger(ButtonClick);
                 _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(LoadMenuScene, _waitForSecond));
             }
@@ -42,6 +46,7 @@ namespace UI
             CommonFunctions.RestartScene();
             _coroutine = null;
         }
+        
     }
 }
 

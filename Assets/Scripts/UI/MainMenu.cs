@@ -11,7 +11,7 @@ namespace UI
         [SerializeField] private StageCounter _stageCounter;
         [SerializeField] private float _waitForSecond;
         [SerializeField] private Animator _animator;
-
+        [SerializeField] private AudioSource _buttonSound;
         private Coroutine _coroutine;
 
         private void Start()
@@ -23,6 +23,7 @@ namespace UI
         {
             if (_coroutine == null)
             {
+                CommonFunctions.PlayButtonSound(_buttonSound);
                 _animator.SetTrigger("StartButtonClick");
                 _coroutine = StartCoroutine(CommonFunctions.DelayCoroutine(LoadGameScene, _waitForSecond));
             }
@@ -30,6 +31,7 @@ namespace UI
 
         public void ExitGame()
         {
+            CommonFunctions.PlayButtonSound(_buttonSound);
             Application.Quit();
         }
 

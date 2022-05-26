@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace KH
@@ -6,6 +7,7 @@ namespace KH
     public class Bonus : MonoBehaviour
     {
         [SerializeField] private ObjectDestroyer _destroyer;
+        [SerializeField] private AudioSource _destroyBonusSound;
         public bool IsDestroyed => _isDestroyed;
         public event Action BonusIsDestroyed;
 
@@ -15,6 +17,10 @@ namespace KH
         {
             if (collision.gameObject.layer == 7) //7 - knife
             {
+                if (!_isDestroyed)
+                {
+                    _destroyBonusSound.Play();
+                }
                 DestroyBonus();
                 if (BonusIsDestroyed != null)
                 {
